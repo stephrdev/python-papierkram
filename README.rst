@@ -35,11 +35,11 @@ python-papierkram supports Python 3 only.
 Prepare for development
 -----------------------
 
-A Python 3.6 interpreter is required in addition to pipenv.
+A Python 3.7 interpreter is required in addition to pipenv.
 
 .. code-block:: shell
 
-    $ pipenv install --python 3.6 --dev
+    $ pipenv install --python 3.7 --dev
     $ pipenv shell
     $ pip install -e .
 

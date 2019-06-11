@@ -47,7 +47,7 @@ def linkcode_resolve(domain, info):
 
 
 intersphinx_mapping = {
-    'python': ('http://docs.python.org/3.6', None),
+    'python': ('http://docs.python.org/3.7', None),
 }
 
 templates_path = ['_templates']

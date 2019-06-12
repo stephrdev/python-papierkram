@@ -1,0 +1,12 @@
+[tool.black]
+line-length = 96
+skip-numeric-underscore-normalization = true
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | build
+)/
+'''

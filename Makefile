@@ -1,4 +1,4 @@
-.PHONY: clean tests cov docs release
+.PHONY: clean tests cov correct docs release
 
 VERSION = $(shell pipenv run python -c "print(__import__('papierkram').__version__)")
 
@@ -12,6 +12,10 @@ tests:
 cov: tests
 	pipenv run coverage html
 	@echo open htmlcov/index.html
+
+correct:
+	pipenv run isort -rc papierkram tests
+	pipenv run black -q papierkram tests
 
 apidoc:
 	pipenv run make -C docs apidoc

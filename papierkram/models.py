@@ -19,13 +19,14 @@ class TimeBooking:
 
     @classmethod
     def from_csv(cls, record):
+        start = datetime.strptime(
+            "{} {}".format(record["Datum"], record["Beginn"]), "%d.%m.%Y %H:%M"
+        )
+        duration = [int(value) for value in record["Dauer (hh:mm)"].split(':')]
+        duration = timedelta(hours=duration[0], minutes=duration[1])
         return cls(
-            datetime.strptime(
-                "{} {}".format(record["Datum"], record["Beginn"]), "%d.%m.%Y %H:%M"
-            ),
-            datetime.strptime(
-                "{} {}".format(record["Datum"], record["Ende"]), "%d.%m.%Y %H:%M"
-            ),
+            start,
+            start + duration,
             record["Nicht-Abrechenbar"] == "nein",
             record["Kunde"],
             record["Projekt"],

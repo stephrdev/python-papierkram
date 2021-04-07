@@ -23,7 +23,7 @@ class Papierkram:
     def login(self, email: str, password: str) -> bool:
         auth_token_response = self.request("login")
         auth_token = re.findall(
-            r'<meta content="([^"]+)" name="csrf-token" />',
+            r'<meta (?:content="([^"]+)" name="csrf-token"|name="csrf-token" content="([^"]+)") />',
             auth_token_response.content.decode("utf-8"),
         )
         if not auth_token:
